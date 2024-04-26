@@ -7,14 +7,8 @@ import { Mutation } from "../resolvers/Mutation";
 const fs = require("fs");
 const path = require("path");
 
-interface Context {
-  mock_database: {
-    cvs: typeof mock_database.cvs;
-    users: typeof mock_database.users;
-    skills: typeof mock_database.skills;
-  };
-}
-export const schema = createSchema<Context>({
+
+export const schema = createSchema({
 typeDefs: fs.readFileSync(path.join(__dirname, "../schema/schema.graphql"),"utf-8"),
 resolvers: {
     Query,

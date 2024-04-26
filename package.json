@@ -20,5 +20,9 @@
   "keywords": [],
   "author": "",
   "license": "ISC",
-  "description": ""
+  "description": "",
+  "devDependencies": {
+    "@prisma/client": "5.13.0",
+    "prisma": "5.13.0"
+  }
 }

@@ -1,3 +1,4 @@
+import { prisma } from "../src/script";
 import { mock_database } from "../src/tables";
 import { CV } from "../src/tables";
 export const Mutation = {
@@ -58,5 +59,20 @@ export const Mutation = {
 
     mock_database.cvs.splice(existingCVIndex, 1);
     return id;
+  },
+  addCVPrisma: async (parent, args, context): Promise<CV> => {
+    return await prisma.cV.create({
+      data: {
+        name: args.input.name,
+        age: args.input.age,
+        job: args.input.job,
+        owner: {
+          connect: { id: args.input.ownerId },
+        },
+        skills: {
+          connect: args.input.skillIds,
+        },
+      },
+    });
   },
 };

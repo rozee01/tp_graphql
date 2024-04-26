@@ -75,33 +75,3 @@ export enum role{
       skill4
     ],
   };
-  
-
-  
-
-    /*getUserById(userId: string): User | undefined {
-      return this.data.users.find(user => user.id === userId);
-    }
-  
-    getCVById(cvId: string): CV | undefined {
-      return this.data.cvs.find(cv => cv.id === cvId);
-    }
-  
-    getCVsByUserId(userId: string): CV[] {
-      return this.data.cvs.filter(cv => cv.ownerId === userId);
-    }
-  
-    getSkillsByCVId(cvId: string): Skill[] {
-      const cv = this.getCVById(cvId);
-      if (cv) {
-        return this.data.skills.filter(skill => cv.skillIds.includes(skill.id));
-      }
-      return [];
-    }*/
-  
-  
-  
-  // Obtenir les compétences d'un CV par son ID
-  //const cvSkills = context.getSkillsByCVId("12345");
-  //console.log(cvSkills);
-  

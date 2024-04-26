@@ -1,0 +1,8 @@
+-- DropForeignKey
+ALTER TABLE `SkillCV` DROP FOREIGN KEY `SkillCV_cvId_fkey`;
+
+-- AlterTable
+ALTER TABLE `SkillCV` MODIFY `cvId` INTEGER NULL;
+
+-- AddForeignKey
+ALTER TABLE `SkillCV` ADD CONSTRAINT `SkillCV_cvId_fkey` FOREIGN KEY (`cvId`) REFERENCES `CV`(`id`) ON DELETE SET NULL ON UPDATE CASCADE;

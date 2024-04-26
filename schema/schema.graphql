@@ -28,7 +28,7 @@ enum UserRole {
 
 type Query {
   getCVById(cvId: ID!): CV
- getAllCVs: [CV]
+  getAllCVs: [CV]
 }
 
 input CVInput {
@@ -43,4 +43,5 @@ type Mutation {
   addCV(input: CVInput!): CV
   updateCV(id: String!, input: CVInput!): CV
   deleteCV(id: String!): String
+  addCVPrisma(input: CVInput!): String
 }
