@@ -44,4 +44,5 @@ type Mutation {
   updateCV(id: String!, input: CVInput!): CV
   deleteCV(id: String!): String
   addCVPrisma(input: CVInput!): String
+  deleteCVPrisma(id: String!): String
 }
