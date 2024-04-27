@@ -19,7 +19,7 @@ export enum role{
     age: number;
     job: string;
     ownerId: string;
-    skillIds: string[]; // Référence aux IDs des compétences
+    skillIds: string[]; // Référence aux IDs des skills
   }
   
   export interface Database {

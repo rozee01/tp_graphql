@@ -13,6 +13,7 @@ export const Mutation = {
 
     mock_database.cvs.push(newCV);
     console.log(mock_database.cvs);
+    context.pubSub.publish("cvAdded", { cv : newCV });
     return newCV;
   },
 
@@ -45,18 +46,19 @@ export const Mutation = {
     };
 
     mock_database.cvs[existingCVIndex] = updateCV;
-
+    context.pubSub.publish("cvModified", { cv : updateCV });
     return mock_database.cvs[existingCVIndex];
   },
 
-  deleteCV: ({ id }: { id: string }): string => {
-    const existingCVIndex = mock_database.cvs.findIndex((cv) => cv.id === id);
+  deleteCV: (parent, args, context): string => {
+    const existingCVIndex = mock_database.cvs.findIndex((cv) => cv.id === args.id);
 
     if (existingCVIndex === -1) {
       throw new Error("CV not found.");
     }
-
+    const deletedCv = mock_database.cvs[existingCVIndex];
     mock_database.cvs.splice(existingCVIndex, 1);
-    return id;
+    context.pubSub.publish("cvDeleted", { cv : deletedCv });
+    return deletedCv.id+"deleted successfully";
   },
 };
